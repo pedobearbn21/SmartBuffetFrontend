@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavNew/>
+    <router-view />
     <!-- <div class="container mx-auto">
       <div>
         <router-link :to="{ name: 'home' }">Home</router-link> |
