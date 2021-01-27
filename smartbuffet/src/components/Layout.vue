@@ -14,7 +14,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import Sidebar from './Sidebar.vue'
 import NavNew from './NavNew.vue'
 export default {
   name: 'Layout',
@@ -24,7 +23,6 @@ export default {
       }
   },
   components: {
-    Sidebar,
     NavNew,
   }
 }
