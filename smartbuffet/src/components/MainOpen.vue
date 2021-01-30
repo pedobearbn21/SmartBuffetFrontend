@@ -4,14 +4,12 @@
 
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
     
-    <div class="w-full inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-        <div class="sm:flex  sm:items-start">
-          <div class="flex justify-between max-w-md mx-auto"> <!-- กรอบของโต๊ะ -->
-            <div class="flex flex-row mx-5">NumTable</div> <!--เลขโต๊ะ -->
-            <div class="flex flex-row-reverse mx-5">Status</div> <!-- สเตตัส -->
+    <div class="border-2 border-gray-500   w-full inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div class="bg-white px-4 pt-4 pb-4 sm:p-6 sm:pb-4">
+          <div class="flex justify-between "> <!-- กรอบของโต๊ะ -->
+            <div class=" p-2">NumTable</div> <!--เลขโต๊ะ -->
+            <div class=" p-2 ">Status</div> <!-- สเตตัส -->
           </div>
-        </div>
       </div>
     </div>
   </div>
