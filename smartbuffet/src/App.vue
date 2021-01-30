@@ -1,6 +1,6 @@
 <template>
   <div class="container w-screen">
-    <MainOpen/> 
+    <Opentable/> 
     <!-- <div class="container mx-auto">
     <router-view />
       <div>
