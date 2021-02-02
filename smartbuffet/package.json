@@ -6,7 +6,9 @@
     "build": "vite build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "vue": "^3.0.4",
+    "vue-axios": "^3.2.2",
     "vue-router": "^4.0.1",
     "vuex": "^3.6.0"
   },
