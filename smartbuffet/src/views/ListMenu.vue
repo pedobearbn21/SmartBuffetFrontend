@@ -20,7 +20,7 @@ export default {
     },
     methods:{
         clickisus(){
-            this.axios.get('/customer/meatlist')
+            this.axios.get('customer/meatlist')
                 .then((res)=>{this.list = res.data})
                 .catch((err)=>{console.log(err);})
         }
