@@ -42,4 +42,7 @@
 </template>
 
 <script>
+  export default {
+    name: 'Opentable',
+  }
 </script>
