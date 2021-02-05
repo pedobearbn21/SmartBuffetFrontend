@@ -1,6 +1,6 @@
 <template>
   <div class="container w-screen">
-    <ListTable/> 
+    <Opentable/> 
     <!-- <div class="container mx-auto">
     <router-view />
       <div>
