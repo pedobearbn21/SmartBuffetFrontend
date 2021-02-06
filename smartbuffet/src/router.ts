@@ -26,7 +26,7 @@ const routes: RouteRecordRaw[] = [
       component: WelcomePage,
     },
     {
-      path: '/listmenu',
+      path: 'listmenu',
       name: 'รายการ',
       component: ListMenu
     }

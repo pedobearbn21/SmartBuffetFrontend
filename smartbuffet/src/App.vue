@@ -1,16 +1,9 @@
 <template>
-  <div class="container w-screen">
-    <AddMeat/> 
-    <!-- <div class="container mx-auto">
-    <router-view />
-      <div>
-        <router-link :to="{ name: 'home' }">Home</router-link> |
-        <img class="mx-auto" alt="Vue logo" src="./assets/logo.png" />
-      </div>
-      <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <!-- <div class="container w-screen"> -->
+    <div class="">
       <router-view />
-    </div> -->
-  </div>
+    </div>
+  <!-- </div> -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-body w-full ">
+  <div class="mx-auto w-11/12 ">
       <div class="text-5xl mt-20">
           ยินดีต้อนรับ
       </div>
@@ -7,7 +7,7 @@
            ลูกค้าโต๊ะ {{ $route.params.id }}
       </div>
       <div class="mt-20">
-            <router-link :to="{path:'/listmenu',params: {id: $route.params.id}}">   
+            <router-link :to="{name:'รายการ',params: {id: $route.params.id}}">   
                 <button  class="bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                     สั่งออเดอร์    
                 </button>
