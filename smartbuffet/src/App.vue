@@ -1,6 +1,6 @@
 <template>
   <div class="container w-screen">
-    <Opentable/> 
+    <AddMeat/> 
     <!-- <div class="container mx-auto">
     <router-view />
       <div>
@@ -18,7 +18,9 @@ import NavNew from './components/NavNew.vue'
 import Layout from './components/Layout.vue'
 import MainOpen from './components/MainOpen.vue'
 import Opentable from './components/Opentable.vue'
+import AddMeat from './components/AddMeat.vue'
 import ListTable from './views/ListTable.vue'
+
 export default {
   name: 'App',
   components: {
@@ -26,6 +28,7 @@ export default {
     Layout,
     MainOpen,
     Opentable,
+    AddMeat,
     ListTable
   }
 }
