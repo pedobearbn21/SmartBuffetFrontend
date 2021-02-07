@@ -3,8 +3,8 @@
         <!-- <div v-for="item in list" :key="item.id">
             <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img'/>
         </div> -->
-        <div v-for="i in 50" :key='i' >
-                <CardMeat :id='i' :name='i' :quantity="i" :meat_img='i' @ClickEvent="(e) => eventMeat(e)"/>
+        <div v-for="item in list" :key='item.id' >
+                <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
         </div>
         <footer class="pt-20"></footer>
             <button type="button" @click="toOrderPage" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
@@ -46,10 +46,24 @@ export default {
         }
     },
     beforeCreate (){
+        console.log(process.env.PATH_CLOUDINARY);
         this.axios.get('customer/meatlist')
-                .then((res)=>{this.list = res.data})
+                .then((res)=>{
+                    this.list = res.data
+                    this.list = this.list.map(data => data = 
+                        {
+                            "id": data.id,
+                            "name": data.name,
+                            "cost": data.cost,
+                            "quantity": data.quantity,
+                            "meat_img": `${process.env.VUE_APP_PATH_CLOUDINARY}/${data.meat_img}`,
+                            "type": data.type
+                        },
+                    )
+                    })
                 .catch((err)=>{console.log(err);})
     },
+    
     methods:{
         clickisus(){
             this.axios.get('customer/meatlist')
