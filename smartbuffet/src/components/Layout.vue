@@ -5,7 +5,7 @@
         <div class="header">
           <NavNew   class="mb-6"/>
         </div>  
-        <div class="container h-screen p-6 mt-12   mx-auto">
+        <div class="container h-screen  mt-14   mx-auto">
           <router-view />
         </div>
     </div>

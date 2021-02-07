@@ -1,24 +1,32 @@
 <template>
-    <div class="container" v-if="listtable" >
-        <li v-for="item in listtable" :key="item.id">
-            {{item.name}}
-            <!-- Check Life cycle -->
-            <MainOpen :name ='item.name'/>
-        </li>
+    <div class="container" >
+        <div v-for="item in listtable" :key="item.id">
+            <main-open :name='item.name' :status='item.status'/>
+        </div>
     </div>
 </template>
 
 <script>
 import MainOpen from '../components/MainOpen.vue' 
+import axios from 'axios'
 export default {
+  components: { MainOpen },
     componenets: {
         MainOpen
     },
     data: function() {
-        listtable: []
+        return {
+            listtable: []
+        }
     },
-    beforeMount(){
-        this.getTable()
+
+    beforeCreate(){
+        this.axios.get('customer/tablestale')
+                  .then((res)=>{
+                      this.listtable = res.data;
+                      console.log(this.listtable);
+                  })
+                  .catch((err)=>{console.log(err);})
     },
     methods:{
           getTable(){
