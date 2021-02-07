@@ -8,7 +8,7 @@ import axios from 'axios';
 //     }
 // })
 
-console.log(process.env.VUE_APP_PATH_CLOUDINARY, process.env);
+console.log(import.meta.env.VUE_APP_PATH_CLOUDINARY, process.env);
 const Axios = axios.create({
   baseURL: `http://localhost:8000/`,
   headers: {

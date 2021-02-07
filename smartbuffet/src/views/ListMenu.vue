@@ -56,7 +56,7 @@ export default {
                             "name": data.name,
                             "cost": data.cost,
                             "quantity": data.quantity,
-                            "meat_img": `${process.env.VUE_APP_PATH_CLOUDINARY}/${data.meat_img}`,
+                            "meat_img": `https://res.cloudinary.com/de7oksxda/${data.meat_img}`,
                             "type": data.type
                         },
                     )
