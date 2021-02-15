@@ -42,7 +42,8 @@ export default {
     },
     data(){
         return {
-            list: [ ]
+            list: [ ],
+            CartList: []
         }
     },
     beforeCreate (){
@@ -73,6 +74,7 @@ export default {
         eventMeat(e){
             console.log(e);
             // logic add cart
+            this.CartList.append(e)
         }
     }
 
