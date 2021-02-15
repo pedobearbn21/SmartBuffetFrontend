@@ -1,18 +1,25 @@
 <template>
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-      <div class="max-w-md mx-auto">
-        <div>
-          <div class="grid grid-cols-12">
-            <div class="one col-span-1" style="background-color: red !important"></div>
-            <div class="two col-span-4">ออเดอร์</div>
-            <div class="three col-span-5">เสิร์ฟแล้ว</div>
-            <div class="four col-span-2 " >ไอคอน</div>
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto  px-5 pt-20">
+      <div class="max-w-md mx-auto h-auto bg-white rounded-b rounded-t" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+          <div class="grid grid-cols-12 flex items-stretch h-full font-bold">
+            <div class="one col-span-1 " >
+              <div class="bg-red-500 rounded-l rounded-tl w-3.5 h-full"></div>
+            </div>
+            <div class="two col-span-4 self-center">ออเดอร์ที่ 1</div>
+            <div class="three col-span-5 self-center">เสิร์ฟแล้ว</div>
+            <div class="four col-span-2 self-center h-auto px-2 py-2.5" >
+              <img src="../assets/eye.png" width="35rem">
+            </div>
           </div>
-        </div>
       </div>
-    </div>
   </div>
-</div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  }
+}
+</script>

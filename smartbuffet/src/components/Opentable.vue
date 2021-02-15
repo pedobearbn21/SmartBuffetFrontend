@@ -1,12 +1,9 @@
 <template>
-<div class="fixed z-10 inset-0 overflow-y-auto">
-  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-    <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-      <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-    </div>
-    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+<!-- <div class="fixed z-10 inset-0 overflow-y-auto">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"> -->
+    <!-- <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> -->
     <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-      <div class="justify-center bg-green-400 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+      <div class="justify-center bg-green-400 px-4 pt-3 pb-3 sm:p-6 sm:pb-4">
         <div class=" text-2xl text-center text-gray-900">หมายเลขโต๊ะ</div>
       </div>
       <div class="flex items-center justify-center bg-gray-50 px-4">
@@ -26,19 +23,21 @@
           <input class="py-2 text-sm  text-gray-900 bg-gray-100 rounded-md pl-10 focus:outline-none border border-gray-900 " placeholder="จำนวนลูกค้า" autocomplete="off">
         </div>
       </div>
-      <div class=" justify-center bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
-        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-max sm:text-sm">
+      <!-- <div class=" grid grid-cols-12   bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
+        <button type="button" class="col-span-6 w-3/4 inline-flex  rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600  font-medium text-lg text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-max sm:text-sm">
           ยกเลิก
         </button>
-        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-400 text-base font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-max sm:text-sm">
+        <button type="button" class="col-span-6 w-3/4  inline-flex  rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-400  font-medium text-lg text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-max sm:text-sm">
           เปิดโต๊ะ
         </button>
-        
-        
+      </div> -->
+      <div class="grid grid-cols-2 px-4 pb-4 h-auto place-content-between  justify-items-stretch">
+        <button type="button" class="col-span-1 justify-self-center  w-3/4 rounded-md border-transparent bg-red-500 "> Cancel</button>
+        <button type="button" class="col-span-1 justify-self-center w-3/4 rounded-md border-transparent bg-green-500 "> Accept</button>
       </div>
     </div>
-  </div>
-</div>
+  <!-- </div>
+</div> -->
 </template>
 
 <script>
