@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="container w-screen"> -->
     <div class="">
-      <Bill/>
+      <SearchBar/>
       <!-- <router-view /> -->
       
     </div>
@@ -20,6 +20,7 @@ import CardMeat from './components/CardMeat.vue'
 import Cart from './components/Cart.vue'
 import OrderHistory from './components/OrderHistory.vue'
 import Bill from './components/Bill.vue'
+import SearchBar from './components/SearchBar.vue'
 import ListMenu from './views/ListMenu.vue'
 export default {
   name: 'App',
@@ -35,6 +36,7 @@ export default {
     Cart,
     OrderHistory,
     Bill,
+    SearchBar,
     ListMenu,
     ListTable
   }
