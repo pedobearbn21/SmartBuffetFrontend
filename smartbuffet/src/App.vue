@@ -3,7 +3,6 @@
     <div class="">
       <!-- <Cart/> -->
       <router-view />
-      
     </div>
   <!-- </div> -->
 </template>
@@ -17,6 +16,10 @@ import AddMeat from './components/AddMeat.vue'
 import BillOrder from './components/BillOrder.vue'
 import ListTable from './views/ListTable.vue'
 import CardMeat from './components/CardMeat.vue'
+import Cart from './components/Cart.vue'
+import OrderHistory from './components/OrderHistory.vue'
+import Bill from './components/Bill.vue'
+import SearchBar from './components/SearchBar.vue'
 import ListMenu from './views/ListMenu.vue'
 export default {
   name: 'App',
@@ -29,6 +32,10 @@ export default {
     BillOrder,
     ListTable,
     CardMeat,
+    Cart,
+    OrderHistory,
+    Bill,
+    SearchBar,
     ListMenu,
     ListTable
   }
