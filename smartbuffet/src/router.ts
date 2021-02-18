@@ -5,6 +5,7 @@ import Layout from './components/Layout.vue'
 
 import HelloWorld from './components/HelloWorld.vue'
 import WelcomePage from './views/WelcomePage.vue'
+import Cart from './views/Cart.vue'
 import ListMenu from './views/ListMenu.vue'
 
 import NotFound from './views/NotFound.vue'
@@ -29,6 +30,14 @@ const routes: RouteRecordRaw[] = [
       path: 'listmenu',
       name: 'รายการ',
       component: ListMenu
+    },
+    {
+      path: 'checkoutcart',
+      name: 'เช็คเอาท์ตะกร้า',
+      component: Cart,
+      props: (route) => ({
+        Cart: route.params
+    })
     }
     
 
