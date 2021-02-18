@@ -1,7 +1,7 @@
 <template>
     <div class="">
-        <div v-for="i in list" :key='i' >
-                <CardMeat :id='i' :name='i.name' :quantity="i.quantity" :meat_img='i.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
+        <div v-for="item in list" :key='item.id' >
+                <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
         </div>
         <footer class="pt-20"></footer>
             <button type="button" @click="navigateToOrder" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
@@ -46,6 +46,7 @@ export default {
                 .then((res)=>{this.list = res.data;})
                 .catch((err)=>{console.log(err);})
     },
+    
     methods:{
         navigateToOrder(){
             const arr = [...this.CartList]
