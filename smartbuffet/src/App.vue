@@ -1,8 +1,8 @@
 <template>
   <!-- <div class="container w-screen"> -->
     <div class="">
-      <Cart/>
-      <!-- <router-view /> -->
+      <!-- <Cart/> -->
+      <router-view />
       
     </div>
   <!-- </div> -->
@@ -17,7 +17,6 @@ import AddMeat from './components/AddMeat.vue'
 import BillOrder from './components/BillOrder.vue'
 import ListTable from './views/ListTable.vue'
 import CardMeat from './components/CardMeat.vue'
-import Cart from './components/Cart.vue'
 import ListMenu from './views/ListMenu.vue'
 export default {
   name: 'App',
@@ -30,7 +29,6 @@ export default {
     BillOrder,
     ListTable,
     CardMeat,
-    Cart,
     ListMenu,
     ListTable
   }

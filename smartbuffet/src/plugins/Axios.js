@@ -8,5 +8,12 @@ const Axios = axios.create({
     }
 })
 
+// const Axios = axios.create({
+//   baseURL: `localhost:8000/`,
+//   headers: {
+//     Authorization: `Bearer ${localStorage.getItem('token')}`
+//   }
+// })
+
 
 export default Axios
