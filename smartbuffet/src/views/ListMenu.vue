@@ -37,11 +37,11 @@ export default {
     // a computed getter
         CartCount() {
             // `this` points to the vm instance
-        return this.CartList.length
+        return this.$store.state.meat_list.length
 }
     },
     beforeCreate (){
-        console.log(this.$store.state.pad)
+        console.log(this.$store.state.meat_list)
         this.axios.get('customer/meatlist')
                 .then((res)=>{this.list = res.data;})
                 .catch((err)=>{console.log(err);})
@@ -49,14 +49,26 @@ export default {
     
     methods:{
         navigateToOrder(){
-            const arr = [...this.CartList]
-            console.log(arr);
-            this.$router.push( {name:'เช็คเอาท์ตะกร้า',params:{ CartList:this.CartList[0] }})
+            this.$router.push( {name:'เช็คเอาท์ตะกร้า'})
         },
         eventMeat(e){
-            this.CartList.push(e)
+            this.$store.state.meat_list.push(e)
+            this.$store.state.meat_list = this.deleteDuplicate(e)
             // logic add cart
-            console.log(this.CartList);
+            console.log(this.$store.state.meat_list);
+        },
+        deleteDuplicate(e){
+            let arr_unique = []
+            if (this.$store.state.meat_list.length >1){
+                arr_unique = this.$store.state.meat_list.filter((item,index)=>{
+                    return item.id != e.id
+                })
+                arr_unique.push(e)
+            }else{
+                console.log('unique');
+                arr_unique.push(e)
+            }
+            return arr_unique
         }
     }
 
