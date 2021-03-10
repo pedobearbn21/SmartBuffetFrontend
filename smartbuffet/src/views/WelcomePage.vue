@@ -37,7 +37,7 @@ export default {
                 .then((res)=>
                 {
                     this.list = res.data;
-                    this.$store.actions.onSetBucket(this.list)
+                    this.$store.dispatch('onSetBucket', this.list)
                     // console.log(this.$store.state.bucket_meat);
                 })
                 .catch((err)=>{console.log(err);})

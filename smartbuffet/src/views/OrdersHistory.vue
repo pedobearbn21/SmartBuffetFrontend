@@ -1,9 +1,7 @@
 <template>
-    <div class=" ">
-        <div class="justify-self-enter mx-6">
-            <div v-for="(index,item) in list" :key="item.id">
-                <BillOrder :index='index' :name='item.name' :status='item.status' :meat_list='item.meat_list' />
-            </div>
+    <div class="justify-self-center mx-6 mt-5">
+        <div v-for="(item,index) in list" :key="item.id">
+            <BillOrder :index='index' :name='item.name' :status='item.status' :meat_list='item.meat_list' />
         </div>
     </div>
 </template>
