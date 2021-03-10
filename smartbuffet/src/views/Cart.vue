@@ -9,7 +9,7 @@
                 <div class="flex-1 ml-5">{{totalDisk || 0}} จาน</div>
         </div>
         <div class="px-4 py-4 mt-2 text-center sm:px-6">
-            <button type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            <button type="submit" @click="sendOrder" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                 สั่งของ
             </button>
         </div>
@@ -30,9 +30,6 @@ export default {
     },
     computed:{
         totalDisk() {
-            console.log(this.list.reduce((accumulator, currentValue) => {
-                        return accumulator + currentValue.quantity
-                    }, 0));
             return this.list.reduce((accumulator, currentValue) => {
                         return accumulator + currentValue.quantity
                     }, 0)
@@ -52,14 +49,15 @@ export default {
             
         },
         sendOrder(){
-            data = {
+            const data = {
                     meats:[...this.list],
-                    order_time: time.now(),
-                    table_id: this.$store.state.table_id
+                    order_time: new Date(),
+                    table_id: 1
                 }
             this.axios.post('customer/orderlist',data)
                 .then((res)=>{console.log(res);})
                 .catch((err)=>console.log(err))
+            console.log(data);
         }
     }
     

@@ -3,7 +3,7 @@
     <div class="flex flex-wrap">
       <!-- <Sidebar :statusDropdown='dropDownOpen' /> -->
         <div class="header">
-          <NavNew   class="mb-6"/>
+          <NavNew  />
         </div>  
         <div class="container h-screen  mt-14   mx-auto">
           <router-view />

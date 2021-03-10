@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-auto h-auto">
+  <div class="flex w-full  h-auto">
     <div class="flex justify-center">
       <form method="GET">
         <div class="relative text-gray-600 focus-within:text-gray-400  m-1">

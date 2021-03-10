@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <div class="">
-      <AddOrder/>
-     <!-- <router-view/> -->
+      <!-- <AddMeatOrder/> -->
+     <router-view/>
     </div>
   </div>
 </template>

@@ -8,6 +8,9 @@ import WelcomePage from './views/WelcomePage.vue'
 import Cart from './views/Cart.vue'
 import ListMenu from './views/ListMenu.vue'
 
+import AddMeatOrder from './views/AddMeatOrder.vue'
+import OrdersHistory from './views/OrdersHistory.vue'
+
 import NotFound from './views/NotFound.vue'
 
 
@@ -37,11 +40,26 @@ const routes: RouteRecordRaw[] = [
       component: Cart,
       props: (route) => ({
         Cart: route.params
-    })
+      })
+    },
+    {
+      path: 'welcome/:id/historyorder',
+      name: 'orderhistory',
+      component: OrdersHistory
     }
     
 
   ]
+},
+{
+   path: "/shop",
+   component: Layout,
+   children:[
+    {
+      path: 'addmeat',
+      component: AddMeatOrder
+    },
+   ]
 },
 {
     path: "/:catchAll(.*)",
