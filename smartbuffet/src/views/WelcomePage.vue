@@ -8,18 +8,18 @@
       </div>
       <div class="mt-20">
             <router-link :to="{name:'รายการ',params: {id: $route.params.id}}">   
-                <button  class="bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
+                <button name="btn-order" class="btn-order bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                     สั่งออเดอร์    
                 </button>
             </router-link>
       </div>
       <div class="mt-5"  v-if="list.length != 0">
-            <button @click="gotoOrderhistory" class="bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
+            <button @click="gotoOrderhistory" class="btn-order-history bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                 ดูประวัติออเดอร์
             </button>
       </div>
       <div class="mt-5">
-            <button @click="1+1" class="bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
+            <button @click="1+1" class="btn-checkbill bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                 เช็คบิล
             </button>
       </div>
