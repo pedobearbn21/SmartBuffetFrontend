@@ -9,7 +9,10 @@
                 <div class="flex-1 ml-5">{{totalDisk || 0}} จาน</div>
         </div>
         <div class="px-4 py-4 mt-2 text-center sm:px-6">
-            <button type="submit" @click="sendOrder" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            <button type="submit" v-if="list.length!=0" @click="sendOrder" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                สั่งของ
+            </button>
+            <button type="submit" v-else disabled @click="alert('กรุณาเพิ่มเนื้อ')" class="disabled:opacity-10 justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                 สั่งของ
             </button>
         </div>
@@ -58,6 +61,9 @@ export default {
                 .then((res)=>{console.log(res);})
                 .catch((err)=>console.log(err))
             console.log(data);
+            this.list = []
+            this.$store.dispatch('onSetBucket', this.list)
+            this.$router.push( {name:'welcomepage',params: {id: this.$store.state.table_id}})
         }
     }
     

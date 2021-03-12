@@ -32,7 +32,7 @@ export default {
         return {
             list: [ ],
             CartList: [],
-            ShoppingCart: new Set()
+            ShoppingCart: new Set(),
         }
     },
     computed: {

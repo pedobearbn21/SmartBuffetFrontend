@@ -27,6 +27,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
       path: 'welcome/:id',
+      name: 'welcomepage',
       component: WelcomePage,
     },
     {

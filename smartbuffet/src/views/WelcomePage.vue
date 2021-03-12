@@ -4,10 +4,10 @@
           ยินดีต้อนรับ
       </div>
       <div class="text-2xl mt-5">
-           ลูกค้าโต๊ะ {{ $route.params.id }}
+           ลูกค้าโต๊ะ {{ $store.state.table_id }}
       </div>
       <div class="mt-20">
-            <router-link :to="{name:'รายการ',params: {id: $route.params.id}}">   
+            <router-link :to="{name:'รายการ',params: { id: $store.state.table_id }}">   
                 <button name="btn-order" class="btn-order bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                     สั่งออเดอร์    
                 </button>
@@ -33,7 +33,11 @@ export default {
         list: []
     }),
     beforeCreate (){
-        this.axios.get(`customer/ordersearch/${this.$route.params.id}`)
+        if (this.$route.params.id != undefined){
+            this.$store.dispatch('onSetTableId', this.$route.params.id)
+        } 
+        console.log(this.$route.params.id, this.$store.state.table_id);
+        this.axios.get(`customer/ordersearch/${this.$store.state.table_id}`)
                 .then((res)=>
                 {
                     this.list = res.data;
@@ -47,7 +51,7 @@ export default {
             this.$router.push( 
                 {
                     name:'orderhistory',
-                    params: { id:this.$route.params.id }
+                    params: { id:this.$store.state.table_id }
                 }
             )
         }

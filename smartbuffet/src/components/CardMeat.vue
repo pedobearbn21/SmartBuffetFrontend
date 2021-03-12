@@ -20,6 +20,7 @@ export default {
     methods:{
         eventCallBack(id,name){
             this.$emit('ClickEvent',{id:id, name:name, quantity:1})
+
         }
     }
 }

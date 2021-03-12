@@ -5,7 +5,8 @@ export default createStore({
     pad:1,
     year:1981,
     meat_list: [],
-    bucket_meat: []
+    bucket_meat: [],
+    table_id: 0
   },
   actions: {
     onSetYear: ({ commit }, year) => {
@@ -13,6 +14,9 @@ export default createStore({
     },
     onSetBucket: ({commit}, list)=>{
       commit('setBucket', list);
+    },
+    onSetTableId: ({commit}, id) => {
+      commit('setTableId', id );
     }
   },
   mutations: {
@@ -21,6 +25,9 @@ export default createStore({
     },
     setBucket: (state, list) => {
       state.bucket_meat = list
+    },
+    setTableId: (state, id )=> {
+      state.table_id = id
     }
   }
 });
