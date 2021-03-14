@@ -67,7 +67,6 @@ export default {
                 })
                 arr_unique.push(e)
             }else{
-                console.log('unique');
                 arr_unique.push(e)
             }
             return arr_unique
@@ -76,7 +75,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>
