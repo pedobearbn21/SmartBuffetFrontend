@@ -7,7 +7,7 @@
             </div>
             <div class="two col-span-4 self-center">ออเดอร์ที่ {{  index  }}</div>
             <div class="three col-span-5 self-center">{{ status }}</div>
-            <div class="four col-span-2 self-center h-auto px-2 py-2.5" >
+            <div name='btn-eye' class="four col-span-2 self-center h-auto px-2 py-2.5" >
               <img src="../assets/eye.png" >
             </div>
           </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="">
-      <!-- <AddMeatOrder/> -->
+      <Opentable/>
      <router-view/>
     </div>
   </div>

@@ -31,7 +31,7 @@
           เปิดโต๊ะ
         </button>
       </div> -->
-      <div class="grid grid-cols-2 px-4 pb-4 h-auto place-content-between  justify-items-stretch">
+      <div class="grid grid-cols-2 bg-gray-50 px-4 pb-4 h-auto place-content-between  justify-items-stretch">
         <button type="button" class="col-span-1 justify-self-center  w-3/4 rounded-md border-transparent bg-red-500 "> Cancel</button>
         <button type="button" class="col-span-1 justify-self-center w-3/4 rounded-md border-transparent bg-green-500 "> Accept</button>
       </div>

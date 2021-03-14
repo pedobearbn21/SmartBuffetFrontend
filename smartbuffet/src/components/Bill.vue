@@ -24,7 +24,7 @@
             <div class="text-red-500">*</div>
         </div>
         <div class="justify-center p-5">ขอบคุณที่มาใช้บริการ ครับ/ค่ะ</div>
-        <div class="px-4 py-8 sm:px-6">
+        <div name='btn-successbill' class="px-4 py-8 sm:px-6">
             <button type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-lg text-sm font-medium rounded-md text-white bg-yellow-300 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
               ชำระเงิน
             </button>
