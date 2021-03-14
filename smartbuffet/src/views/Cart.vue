@@ -8,7 +8,7 @@
                 <div class="flex-1 ml-8">จำนวนทั้งหมด</div>
                 <div class="flex-1 ml-5">{{totalDisk || 0}} จาน</div>
         </div>
-        <div class="px-4 py-4 mt-2 text-center sm:px-6">
+        <div name='btn-pushorder' class="px-4 py-4 mt-2 text-center sm:px-6">
             <button type="submit" v-if="list.length!=0" @click="sendOrder" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                 สั่งของ
             </button>
