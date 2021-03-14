@@ -36,6 +36,11 @@ export default {
                       console.log(this.listtable);
                   })
                   .catch((err)=>{console.log(err);})
+          },
+          openTableDialy(){
+              this.axios.post('customer/table',data)
+                .then((res)=>{this.$swal({title:"Success",icon:"success"})})
+                .catch((err)=>{console.log(err);})
           }
       }
 }

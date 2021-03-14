@@ -13,25 +13,42 @@
                 </button>
             </router-link>
       </div>
-      <div class="mt-5"  v-if="list.length != 0">
-            <button name='btn-orderhistory' @click="gotoOrderhistory" class="btn-order-history bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
+      <div class="mt-5"  v-if="LengthofOrderInlist != 0">
+            <button @click="gotoOrderhistory" class="btn-order-history bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
                 ดูประวัติออเดอร์
             </button>
       </div>
       <div class="mt-5">
-            <button @click="1+1" class="btn-checkbill bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 ">
-                เช็คบิล
-            </button>
+            <Alertcomponent @onConfirm='Checkbill' @onClose='Checkbill' title="เช็คบิล" text="กรุณารอสักครู่" icon="success" textButton="เช็คบิล" :showConfirmButton="false" styleButton="btn-checkbill bg-yellow-300 rounded-xl w-full md:w-6/12 font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-yellow-400 " />
       </div>
   </div>
 </template>
 
 <script>
+import Alertcomponent from '../components/AlertComponent.vue'
+
 export default {
     name: 'WelcomePage',
+    components:{
+        Alertcomponent
+    },
     data: ()=> ({
         list: []
     }),
+    computed: {
+        // a computed getter
+        LengthofOrderInlist() {
+            this.axios.get(`customer/ordersearch/${this.$store.state.table_id}`)
+                .then((res)=>
+                {
+                    this.list = res.data;
+                    this.$store.dispatch('onSetBucket', this.list)
+                    // console.log(this.$store.state.bucket_meat);
+                })
+                .catch((err)=>{console.log(err);})
+        return this.length 
+        }
+    },
     beforeCreate (){
         if (this.$route.params.id != undefined){
             this.$store.dispatch('onSetTableId', this.$route.params.id)
@@ -42,7 +59,6 @@ export default {
                 {
                     this.list = res.data;
                     this.$store.dispatch('onSetBucket', this.list)
-                    // console.log(this.$store.state.bucket_meat);
                 })
                 .catch((err)=>{console.log(err);})
     },
@@ -54,6 +70,16 @@ export default {
                     params: { id:this.$store.state.table_id }
                 }
             )
+        },
+        Checkbill(){
+            console.log(this.$store.state.table_id);
+            this.axios.patch(`customer/table/${this.$store.state.table_id}`,{status: "CLOSE"})
+                .then((r)=>{
+                    console.log(r);
+                    // this.$notification.push( message:`${this.$route.params.id} ต้องการเช็คบิลโต๊ะ`)  
+                })
+                .catch((err)=>{ console.log(err); })  
+                
         }
     }
 

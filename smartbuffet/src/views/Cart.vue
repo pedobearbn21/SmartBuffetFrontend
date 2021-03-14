@@ -55,12 +55,19 @@ export default {
             const data = {
                     meats:[...this.list],
                     order_time: new Date(),
-                    table_id: 1
+                    table_id: this.$store.state.table_id
                 }
             this.axios.post('customer/orderlist',data)
-                .then((res)=>{console.log(res);})
+                .then((res)=>{ 
+                    this.$swal({
+                        title: 'สั่งสำเร็จ',
+                        text: 'กรุณารอสักครู่',
+                        icon: 'success',
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                    })
+                })
                 .catch((err)=>console.log(err))
-            console.log(data);
             this.list = []
             this.$store.dispatch('onSetBucket', this.list)
             this.$router.push( {name:'welcomepage',params: {id: this.$store.state.table_id}})

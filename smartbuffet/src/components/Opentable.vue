@@ -20,17 +20,10 @@
                <path d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"/>
               </svg>
           </span>
-          <input class="py-2 text-sm  text-gray-900 bg-gray-100 rounded-md pl-10 focus:outline-none border border-gray-900 " placeholder="จำนวนลูกค้า" autocomplete="off">
+          <input name='action-people' class="py-2 text-sm  text-gray-900 bg-gray-100 rounded-md pl-10 focus:outline-none border border-gray-900 " placeholder="จำนวนลูกค้า" autocomplete="off">
         </div>
       </div>
-      <!-- <div class=" grid grid-cols-12   bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row">
-        <button type="button" class="col-span-6 w-3/4 inline-flex  rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600  font-medium text-lg text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-max sm:text-sm">
-          ยกเลิก
-        </button>
-        <button type="button" class="col-span-6 w-3/4  inline-flex  rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-400  font-medium text-lg text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-max sm:text-sm">
-          เปิดโต๊ะ
-        </button>
-      </div> -->
+     
       <div class="grid grid-cols-2 bg-gray-50 px-4 pb-4 h-auto place-content-between  justify-items-stretch">
         <button type="button" class="col-span-1 justify-self-center  w-3/4 rounded-md border-transparent bg-red-500 "> Cancel</button>
         <button type="button" class="col-span-1 justify-self-center w-3/4 rounded-md border-transparent bg-green-500 "> Accept</button>
