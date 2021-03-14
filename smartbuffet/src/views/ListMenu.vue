@@ -6,7 +6,7 @@
             </div>
         </div>
         <footer class="pt-20"></footer>
-            <button type="button" @click="navigateToOrder" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
+            <button name='btn-pickmeat' type="button" @click="navigateToOrder" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
                 <div class="flex-grow relative grid grid-cols-12 ">
                     <span class=" col-span-2">
                             icon 
