@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="container w-screen"> -->
     <div class="">
-      <!-- <Cart/> -->
+      <CardMeat/>
       <router-view />
     </div>
   <!-- </div> -->
@@ -15,15 +15,17 @@
 // import AddMeat from './components/AddMeat.vue'
 // import BillOrder from './components/BillOrder.vue'
 // import ListTable from './views/ListTable.vue'
-// import CardMeat from './components/CardMeat.vue'
+ import CardMeat from './components/CardMeat.vue'
 // import Cart from './components/Cart.vue'
 // import OrderHistory from './components/OrderHistory.vue'
 // import Bill from './components/Bill.vue'
 // import SearchBar from './components/SearchBar.vue'
 // import ListMenu from './views/ListMenu.vue'
+// import Peoplecomeon from './components/Peoplecomeon.vue'
+
 export default {
   name: 'App',
-  // components: {
+   components: {
   //   NavNew,
   //   Layout,
   //   MainOpen,
@@ -31,13 +33,14 @@ export default {
   //   AddMeat,
   //   BillOrder,
   //   ListTable,
-  //   CardMeat,
+     CardMeat,
   //   Cart,
   //   OrderHistory,
   //   Bill,
   //   SearchBar,
   //   ListMenu,
-  //   ListTable
-  // }
+  //   ListTable,
+  //   Peoplecomeon
+   }
 }
 </script>
