@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-
+import axios from './plugins/Axios'
 export default createStore({
   state: {
     pad:1,
@@ -20,9 +20,17 @@ export default createStore({
       commit('setBucket', list);
     },
     onSetTableId: ({commit}, id) => {
+      
       commit('setTableId', id );
     },
     onSetTableStableId: ({commit}, id) => {
+      
+      axios.get('customer/tablestable/'+id)
+        .then((res)=>{ 
+          commit('setTableId',res.data.table_dialy.id)
+          // this.$store.dispatch('onSetTableId',res.data.table_dialy.id) 
+        })
+        .catch((err)=>{console.log(err);})
       commit('setTableStableId', id);
     }
   },
