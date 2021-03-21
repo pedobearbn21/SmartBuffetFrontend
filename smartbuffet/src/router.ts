@@ -8,6 +8,16 @@ import WelcomePage from './views/WelcomePage.vue'
 import Cart from './views/Cart.vue'
 import ListMenu from './views/ListMenu.vue'
 
+import AddMeatOrder from './views/AddMeatOrder.vue'
+import OrdersHistory from './views/OrdersHistory.vue'
+
+
+import DashBoard from './views/admin/DashBoard.vue'
+import ManageMeat from './views/admin/ManageMeat.vue'
+import AddMeatView from './views/admin/AddMeatView.vue'
+import OpenTableView from './views/admin/OpenTableView.vue'
+import ListTable from './views/ListTable.vue'
+
 import NotFound from './views/NotFound.vue'
 
 
@@ -24,6 +34,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
       path: 'welcome/:id',
+      name: 'welcomepage',
       component: WelcomePage,
     },
     {
@@ -37,7 +48,37 @@ const routes: RouteRecordRaw[] = [
       component: Cart,
       props: (route) => ({
         Cart: route.params
-    })
+      })
+    },
+    {
+      path: 'welcome/:id/historyorder',
+      name: 'orderhistory',
+      component: OrdersHistory
+    },
+    {
+      path: 'admin/addmeat',
+      name: 'addmeat',
+      component: AddMeatView
+    },
+    {
+      path: 'admin/graph',
+      name: 'graph',
+      component: DashBoard
+    },
+    {
+      path: 'admin/meatmanage',
+      name: 'จัดการเนื้อ',
+      component: ManageMeat
+    },
+    {
+      path: 'admin/addmeat',
+      name: 'addMeat',
+      component: AddMeatView
+    },
+    {
+      path: 'admin/opentable',
+      name: 'OpenTable',
+      component: ListTable
     }
     
 

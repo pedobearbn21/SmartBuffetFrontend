@@ -1,10 +1,12 @@
 <template>
     <div class="">
         <div v-for="item in list" :key='item.id' >
+            <div name='cardmeat-${id}'>
                 <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
+            </div>
         </div>
         <footer class="pt-20"></footer>
-            <button type="button" @click="navigateToOrder" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
+            <button name='btn-pickmeat' type="button" @click="navigateToOrder" class="w-full items-center flex text-white font-bold bg-green-200 md:bg-gray-300 px-2 text-center fixed bottom-0 h-16 ">
                 <div class="flex-grow relative grid grid-cols-12 ">
                     <span class=" col-span-2">
                             icon 
@@ -30,18 +32,18 @@ export default {
         return {
             list: [ ],
             CartList: [],
-            ShoppingCart: new Set()
+            ShoppingCart: new Set(),
         }
     },
     computed: {
     // a computed getter
         CartCount() {
             // `this` points to the vm instance
-        return this.CartList.length
+        return this.$store.state.meat_list.length
 }
     },
     beforeCreate (){
-        console.log(this.$store.state.pad)
+        console.log(this.$store.state.meat_list)
         this.axios.get('customer/meatlist')
                 .then((res)=>{this.list = res.data;})
                 .catch((err)=>{console.log(err);})
@@ -49,20 +51,27 @@ export default {
     
     methods:{
         navigateToOrder(){
-            const arr = [...this.CartList]
-            console.log(arr);
-            this.$router.push( {name:'เช็คเอาท์ตะกร้า',params:{ CartList:this.CartList[0] }})
+            this.$router.push( {name:'เช็คเอาท์ตะกร้า'})
         },
         eventMeat(e){
-            this.CartList.push(e)
+            this.$store.state.meat_list.push(e)
+            this.$store.state.meat_list = this.deleteDuplicate(e)
             // logic add cart
-            console.log(this.CartList);
+            console.log(this.$store.state.meat_list);
+        },
+        deleteDuplicate(e){
+            let arr_unique = []
+            if (this.$store.state.meat_list.length >1){
+                arr_unique = this.$store.state.meat_list.filter((item,index)=>{
+                    return item.id != e.id
+                })
+                arr_unique.push(e)
+            }else{
+                arr_unique.push(e)
+            }
+            return arr_unique
         }
     }
 
 }
 </script>
-
-<style>
-
-</style>
