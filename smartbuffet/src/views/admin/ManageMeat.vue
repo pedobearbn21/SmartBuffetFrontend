@@ -5,7 +5,7 @@
         </div>
         <div>
             <div v-for="item in list_meat" :key="item.id">
-                <CartMeat :id="item.id" :name="item.name" :quantity="item.quantity" :meat_img="item.meat_img"/>
+                <CartMeat @ClickEvent='editMeat' :id="item.id" :name="item.name" :quantity="item.quantity" :meat_img="item.meat_img"/>
             </div>
         </div>
     </div>
@@ -72,6 +72,9 @@ export default {
         },
         eventAddButton(){
             this.$router.push({name:'addMeat'})
+        },
+        editMeat(){
+            this.$router.push({name: 'editMeat',params: {}})
         }
     }
 }
