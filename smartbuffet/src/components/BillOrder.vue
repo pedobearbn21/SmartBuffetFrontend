@@ -1,6 +1,6 @@
 <template>
   <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-      <div class="max-w-md mx-auto h-auto bg-white rounded-b rounded-t" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+      <div @click='OrderClicked' class="max-w-md mx-auto h-auto bg-white rounded-b rounded-t" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
           <div class="grid grid-cols-12 flex items-stretch h-full font-bold">
             <div class="one col-span-1 " >
               <div class="bg-yellow-300 rounded-l rounded-tl w-3.5 h-full" :class="status === 'ORDERED'?'bg-yellow-300':'bg-green-500'"></div>
@@ -12,15 +12,37 @@
             </div>
           </div>
       </div>
+        <ModalDialog :show="showModal">
+          <order-history-table :order_id="id" />
+        </ModalDialog>
   </div>
 </template>
+
 <script>
+import OrderHistoryTable from '../components/OrderHistoryTable.vue'
+import ModalDialog from '../components/ModalDialog.vue'
+import { ref } from 'vue';
+
 export default {
+  components: {
+    OrderHistoryTable,
+    ModalDialog
+  },
   data(){
     return{
-      
     }
   },
-  props: ['index','name', 'status']
+  setup() {
+    const showModal = ref(false);
+    return {
+      showModal,
+    };
+  },
+  props: ['index','name', 'status', 'id'],
+  methods: {
+    OrderClicked(){
+      this.showModal = !this.showModal
+    }
+  }
 }
 </script>

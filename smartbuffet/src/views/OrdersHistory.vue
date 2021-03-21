@@ -2,7 +2,7 @@
     <div>
         <div class="justify-self-center mx-6 mt-5   ">
             <div v-for="(item,index) in list" :key="item.id">
-                <BillOrder :index='index+1' :name='item.name' :status='item.status' :meat_list='item.meat_list' />
+                <BillOrder :index='index+1' :id='item.id' :name='item.name' :status='item.status' :meat_list='item.meat_list' />
             </div>
         </div>
         <div>
@@ -19,17 +19,19 @@
 <script>
 import BillOrder from '../components/BillOrder.vue'
 import Alertcomponent from '../components/AlertComponent.vue'
+import OrderHistoryTable from '../components/OrderHistoryTable.vue'
 export default {
     name:'OrdersHistory',
     components:{
         BillOrder,
-        Alertcomponent
+        Alertcomponent,
+        OrderHistoryTable
     },
     data:()=>({
         list: []
     }),
     created(){
-        
+        console.log(this.$store.state.table_id);
         this.list = this.$store.state.bucket_meat 
         this.axios.get(`customer/ordersearch/${this.$store.state.table_id}`)
             .then((res)=>{this.list = res.data})

@@ -1,7 +1,6 @@
 <template>
   <div class="">
     <div class="">
-      <Opentable/>
      <router-view/>
     </div>
   </div>
@@ -16,7 +15,7 @@ import AddMeat from './components/AddMeat.vue'
 import BillOrder from './components/BillOrder.vue'
 import ListTable from './views/ListTable.vue'
 import CardMeat from './components/CardMeat.vue'
-import OrderHistory from './components/OrderHistory.vue'
+import OrderHistoryTable from './components/OrderHistoryTable.vue'
 import Bill from './components/Bill.vue'
 import SearchBar from './components/SearchBar.vue'
 import ListMenu from './views/ListMenu.vue'
@@ -32,7 +31,7 @@ export default {
      BillOrder,
      ListTable,
      CardMeat,
-     OrderHistory,
+     OrderHistoryTable,
      Bill,
      SearchBar,
      ListMenu,

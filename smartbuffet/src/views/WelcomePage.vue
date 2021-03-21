@@ -4,7 +4,7 @@
           ยินดีต้อนรับ
       </div>
       <div class="text-2xl mt-5">
-           ลูกค้าโต๊ะ {{ $store.state.table_id }}
+           ลูกค้าโต๊ะ {{ $store.state.table_stable_id }}
       </div>
       <div class="mt-20">
             <router-link :to="{name:'รายการ',params: { id: $store.state.table_id }}">   
@@ -51,7 +51,7 @@ export default {
     },
     beforeCreate (){
         if (this.$route.params.id != undefined){
-            this.$store.dispatch('onSetTableId', this.$route.params.id)
+            this.$store.dispatch('onSetTableStableId', this.$route.params.id)
         } 
         console.log(this.$route.params.id, this.$store.state.table_id);
         this.axios.get(`customer/ordersearch/${this.$store.state.table_id}`)
@@ -67,7 +67,7 @@ export default {
             this.$router.push( 
                 {
                     name:'orderhistory',
-                    params: { id:this.$store.state.table_id }
+                    params: { id:this.$store.state.table_stable_id }
                 }
             )
         },

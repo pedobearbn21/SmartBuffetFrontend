@@ -33,7 +33,11 @@
                   <!-- {{ $route.params.id }} -->
               </div>
         </div>
-        <p class="font-semibold text-3xl text-white-400 mr-auto   pl-4">{{ $route.name }} {{ $route.params.id }}</p>
+        <p class="font-semibold text-3xl text-white-400 mr-auto   pl-4">
+          {{ $route.name }} 
+          <!-- {{ $route.params.id }} -->
+          <!-- {{$store.state.table_stable_id}} -->
+          </p>
         <!-- <div class=" tex-center mr-auto text-lg font-bold uppercase">
                 {{ $route.name }}
         </div> -->
@@ -157,6 +161,7 @@
 </template>
 
 <script>
+import { toRef } from 'vue';
 export default {
   components: {
   },
@@ -165,10 +170,21 @@ export default {
       isOpen: false
     };
   },
+  setup(){
+    // const table_id = toRef(this.$route.params.id)
+    // this.$store.dispatch('onSetTableStableId',table_id)
+    // return {}
+  },
   methods: {
     drawer() {
       this.isOpen = !this.isOpen;
     }
+  },
+  created(){
+    this.$store.dispatch('onSetTableStableId',this.$route.params.id)
+  },
+  mounted(){
+    console.log(this.$route.params.id);
   },
   watch: {
     isOpen: {

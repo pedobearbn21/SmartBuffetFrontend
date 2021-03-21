@@ -71,6 +71,11 @@ const routes: RouteRecordRaw[] = [
       component: ManageMeat
     },
     {
+      path: 'admin/addmeat',
+      name: 'addMeat',
+      component: AddMeatView
+    },
+    {
       path: 'admin/opentable',
       name: 'OpenTable',
       component: ListTable
