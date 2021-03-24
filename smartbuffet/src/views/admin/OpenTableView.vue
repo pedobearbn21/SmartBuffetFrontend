@@ -17,6 +17,7 @@ export default {
         table_list: []
     }),
     beforeCreate(){
+         this.$store.dispatch('onSetUser', 'admin');
          this.axios.get('/customer/tablestable')
             .then((res)=>{
                 this.table_list = res.data

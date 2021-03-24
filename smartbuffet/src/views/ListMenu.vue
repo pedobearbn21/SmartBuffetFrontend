@@ -3,7 +3,7 @@
         <SearchBar :option_no_add='true' :list_type="list_type" @inputChange='(e)=>searchMeat(e)' @changeType='(e)=>searchbyType(e)' />
         <div v-for="item in list" :key='item.id' >
             <div name='cardmeat-${id}'>
-                <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
+                <CardMeat :id='item.id' :cost='item.cost' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
             </div>
         </div>
         <footer class="pt-20"></footer>
