@@ -17,7 +17,7 @@
                   </svg>
                   <div class="flex text-sm text-gray-600">
                     <!-- <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"> -->
-                      <span class="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">Upload a file</span>
+                      <span name='btn-Upload' class="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">Upload a file</span>
                     <!-- </label> -->
                     <p class="pl-1">or drag and drop</p>
                   </div>
@@ -34,7 +34,7 @@
                 <div class="flex justify-center my-5 space-x-1">
                     <div class="grid grid-cols-12 mt-1 rounded-md shadow-sm">
                         <label for="name" class="col-span-5 m-5 block text-sm font-medium text-gray-700">ชื่อของเนื้อ</label>
-                        <input type="text" v-model="name" name="name" id="name" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="ชื่อของเนื้อ">
+                        <input type="text" v-model="name" name="input-NameMeat" id="name" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="ชื่อของเนื้อ">
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                         <label for="category" class="col-span-5 m-5  block text-sm font-medium text-gray-700">ประเภท</label>
                       <!-- <input type="text" name="dish" id="dish" class="focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="จำนวนจาน"> -->
                             <select v-model="selected_type" name="category" id="category" class="col-span-7 w-max pl-5  border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer h-full   sm:text-sm">
-                                <option selected value=""  class="text-gray-300">โปรดเลือกประเภท</option>
+                                <option name='btn-Type' selected value=""  class="text-gray-300">โปรดเลือกประเภท</option>
                                 <option v-for="item in type_list" :value="item.id" :key="item.id">{{item.name_type}}</option>
                             </select>
                     </div>
@@ -53,19 +53,19 @@
                     <div class="flex justify-center my-5 space-x-1">
                         <div class="grid grid-cols-12 mt-1 rounded-md shadow-sm">
                             <label for="dish" class="col-span-5 m-5 block text-sm font-medium text-gray-700">จำนวนจาน</label>
-                            <input type="number" v-model="quantity" name="dish" id="dish" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="จำนวนจาน">
+                            <input type="number" v-model="quantity" name="input-NumDish" id="dish" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="จำนวนจาน">
                         </div>
                     </div>
 
                     <div class="flex justify-center my-5 space-x-1 ">
                         <div class="grid grid-cols-12 mt-1 rounded-md shadow-sm">
                             <label for="price" class="col-span-5 m-5 px-4 block text-sm font-medium text-gray-700">ราคา</label>
-                            <input type="number" v-model="price" name="price" id="price" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="ราคา">
+                            <input type="number" v-model="price" name="input-price" id="price" class="col-span-7 focus:ring-indigo-500 focus:border-indigo-500 block h-full w-full pl-5 pr-5 sm:text-sm border-gray-300 rounded-md" placeholder="ราคา">
                         </div>
                     </div>
 
           <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
-            <button @click="createMeat" type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            <button name='btn-SaveMeat' @click="createMeat" type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
               Save
             </button>
           </div>

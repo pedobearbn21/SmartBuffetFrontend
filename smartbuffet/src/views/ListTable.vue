@@ -1,7 +1,7 @@
 <template>
     <div class="container" >
         <div v-for="item in listtable" :key="item.id">
-            <main-open @cardClicked='cardClicked(item.status,item.id)' :name='item.name' :status='item.status'/>
+            <main-open class="open-table" @cardClicked='cardClicked(item.status,item.id)' :name='item.name' :status='item.status'/>
         </div>
     </div>
 </template>
