@@ -53,7 +53,6 @@ export default {
         if (this.$route.params.id != undefined){
             this.$store.dispatch('onSetTableStableId', this.$route.params.id)
         } 
-        console.log(this.$route.params.id, this.$store.state.table_id);
         this.axios.get(`customer/ordersearch/${this.$store.state.table_id}`)
                 .then((res)=>
                 {
@@ -73,12 +72,14 @@ export default {
         },
         Checkbill(){
             console.log(this.$store.state.table_id);
-            this.axios.patch(`customer/table/${this.$store.state.table_id}`,{status: "CLOSE"})
+            this.axios.patch(`customer/table/update/${this.$store.state.table_id}`,{status: "CLOSE",table_clost_time:new Date()})
                 .then((r)=>{
-                    console.log(r);
                     // this.$notification.push( message:`${this.$route.params.id} ต้องการเช็คบิลโต๊ะ`)  
                 })
-                .catch((err)=>{ console.log(err); })  
+                .catch((err)=>{ console.log(err); })
+            this.axios.patch(`customer/tablestable/${this.$store.state.table_stable_id}`, {status : "CLOSE"})
+                .then((res)=>{console.log(res);})
+                .catch((err)=>{console.log(err);})
                 
         }
     }

@@ -1,5 +1,6 @@
 <template>
-    <div class="">
+    <div class="mt-3">
+        <SearchBar :option_no_add='true' :list_type="list_type" @inputChange='(e)=>searchMeat(e)' @changeType='(e)=>searchbyType(e)' />
         <div v-for="item in list" :key='item.id' >
             <div name='cardmeat-${id}'>
                 <CardMeat :id='item.id' :name='item.name' :quantity="item.quantity" :meat_img='item.meat_img' @ClickEvent="(e) => eventMeat(e)"/>
@@ -23,16 +24,19 @@
 <script>
 import { onMounted } from 'vue'
 import CardMeat from '../components/CardMeat.vue'
+import SearchBar from '../components/SearchBar.vue'
 export default {
     name: 'ListMenu',
     components:{
-        CardMeat
+        CardMeat,
+        SearchBar
     },
     data(){
         return {
             list: [ ],
             CartList: [],
             ShoppingCart: new Set(),
+            list_type: []
         }
     },
     computed: {
@@ -47,9 +51,19 @@ export default {
         this.axios.get('customer/meatlist')
                 .then((res)=>{this.list = res.data;})
                 .catch((err)=>{console.log(err);})
+        this.axios.get('/customer/type')
+                .then((res)=>{
+                    this.list_type = res.data
+                })
+                .catch((err)=>{console.log(err);})
     },
     
     methods:{
+        getMeat(){
+            this.axios.get('customer/meatlist')
+                .then((res)=>{this.list = res.data;})
+                .catch((err)=>{console.log(err);})
+        },
         navigateToOrder(){
             this.$router.push( {name:'เช็คเอาท์ตะกร้า'})
         },
@@ -70,7 +84,25 @@ export default {
                 arr_unique.push(e)
             }
             return arr_unique
-        }
+        },
+        searchMeat(e){
+            if (e === ''){
+                this.getMeat()
+            }else{
+                this.axios.get('/customer/meat/searchtext/'+e)
+                .then((res)=>{
+                    this.list = res.data
+                })
+                .catch((err)=>{console.log(err);})
+            }
+        },
+        searchbyType(e){
+            this.axios.get('/customer/meat/search/'+e)
+                .then((res)=>{
+                    this.list = res.data
+                })
+                .catch((err)=>{console.log(err);})
+        },
     }
 
 }

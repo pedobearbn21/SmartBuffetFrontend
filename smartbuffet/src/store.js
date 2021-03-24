@@ -2,6 +2,7 @@ import { createStore } from 'vuex';
 import axios from './plugins/Axios'
 export default createStore({
   state: {
+    user: '',
     pad:1,
     year:1981,
     meat_list: [],
@@ -10,6 +11,9 @@ export default createStore({
     table_stable_id: 0
   },
   actions: {
+    onSetUser:({ commit }, name) => {
+      commit('setUser', name)
+    },
     onSetYear: ({ commit }, year) => {
       commit('setYear', year);
     },
@@ -35,6 +39,9 @@ export default createStore({
     }
   },
   mutations: {
+    setUser: (state, name) => {
+      state.user = name
+    },
     setYear: (state, year) => {
       state.year = year;
     },

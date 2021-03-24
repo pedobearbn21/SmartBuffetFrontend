@@ -17,6 +17,9 @@ import ManageMeat from './views/admin/ManageMeat.vue'
 import AddMeatView from './views/admin/AddMeatView.vue'
 import OpenTableView from './views/admin/OpenTableView.vue'
 import ListTable from './views/ListTable.vue'
+import EditMeatView from './views/admin/EditMeatView.vue'
+import AddTypes from './views/admin/AddTypes.vue'
+import MeatInNeed from './views/admin/MeatInNeed.vue'
 
 import NotFound from './views/NotFound.vue'
 
@@ -76,10 +79,26 @@ const routes: RouteRecordRaw[] = [
       component: AddMeatView
     },
     {
+      path: 'admin/editmeat/:id',
+      name: 'editMeat',
+      component: EditMeatView
+    },
+    {
       path: 'admin/opentable',
       name: 'OpenTable',
       component: ListTable
+    },
+    {
+      path: 'admin/addtype',
+      name: 'addTypes',
+      component: AddTypes
+    },
+    {
+      path: 'admin/listmeat',
+      name: 'ListMeats',
+      component: MeatInNeed
     }
+    // Page for Stock man to Manage All Meat in needed
     
 
   ]

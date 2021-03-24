@@ -31,13 +31,6 @@ export default {
             list: []
         }
     },
-    computed:{
-        totalDisk() {
-            return this.list.reduce((accumulator, currentValue) => {
-                        return accumulator + currentValue.quantity
-                    }, 0)
-        }
-    },
     created(){
         this.list = this.$store.state.meat_list 
         console.log(this.list);
@@ -70,7 +63,7 @@ export default {
                 .catch((err)=>console.log(err))
             this.list = []
             this.$store.dispatch('onSetBucket', this.list)
-            this.$router.push( {name:'welcomepage',params: {id: this.$store.state.table_id}})
+            this.$router.push( {name:'welcomepage',params: {id: this.$store.state.table_stable_id}})
         }
     }
     

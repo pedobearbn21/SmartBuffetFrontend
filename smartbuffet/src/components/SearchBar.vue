@@ -20,7 +20,7 @@
     </div>
     
 
-    <div class="relative inline-block text-left m-1">
+    <div v-if="!option_no_add" class="relative inline-block text-left m-1">
       <div>
         <button type="button" @click="buttonAddClick" class="inline-flex justify-center w-full rounded-full border border-gray-300 shadow-sm px-2 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="options-menu" aria-haspopup="true" aria-expanded="true">
           ADD
@@ -37,7 +37,7 @@
 <script>
 export default {
     name: 'SearchBar',
-    props: ['list_type'],
+    props: ['list_type','option_no_add'],
     data:()=>({
       selected: ''
     }),

@@ -25,5 +25,4 @@ app.use(Vueaxios,Axios)
 app.use(store)
 app.use(router)
 app.mount('#app')
-console.log(app.config);
 

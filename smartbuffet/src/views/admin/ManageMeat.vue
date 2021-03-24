@@ -5,7 +5,7 @@
         </div>
         <div>
             <div v-for="item in list_meat" :key="item.id">
-                <CartMeat @ClickEvent='editMeat' :id="item.id" :name="item.name" :quantity="item.quantity" :meat_img="item.meat_img"/>
+                <CartMeat @ClickEvent='editMeat(item.id)' :id="item.id" :name="item.name" :quantity="item.quantity" :meat_img="item.meat_img"/>
             </div>
         </div>
     </div>
@@ -26,6 +26,7 @@ export default {
         list_type: []
     }),
     beforeCreate(){
+        this.$store.dispatch('onSetUser', 'admin');
         this.axios.get('/customer/meatlist')
                 .then((res)=>{
                     console.log(res);
@@ -73,8 +74,8 @@ export default {
         eventAddButton(){
             this.$router.push({name:'addMeat'})
         },
-        editMeat(){
-            this.$router.push({name: 'editMeat',params: {}})
+        editMeat(id){
+            this.$router.push({name: 'editMeat',params: { id: id}})
         }
     }
 }

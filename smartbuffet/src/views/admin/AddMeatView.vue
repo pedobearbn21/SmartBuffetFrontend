@@ -11,11 +11,8 @@ export default {
     components: {
         AddMeat
     },
-    data:()=>({
-
-    }),
-    methods:{
-        
+    beforeCreate(){
+        this.$store.dispatch('onSetUser', 'admin');
     }
 }
 </script>

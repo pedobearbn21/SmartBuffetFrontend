@@ -19,7 +19,7 @@
                 </table>
             </div>
             <div class="px-4 py-3 sm:px-6">
-            <button @click="orderServe" type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            <button @click="orderServe" v-if="status == 'ORDERED'" type="submit" class=" justify-center w-full h-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
               เสิร์ฟ
             </button>
           </div>
@@ -31,13 +31,20 @@
 export default {
     props: ['order_id'],
     data:()=>({
-        list : []
+        list : [],
+        status: null
     }),
+    computed:{
+        // total_cost() {
+        //     return this.list.reduce((accumulator, currentValue) => {
+        //         return accumulator + currentValue.meat.quanity*currentValue.meat.meat.cost
+        // }, 0)
+    },
     beforeCreate(){
-        console.log(this.order_id);
         this.axios.get(`customer/order/${this.order_id}`)
             .then((res)=>{
                 this.list = res.data.meat
+                this.status = res.data.status
             })
             .catch((err)=>{console.log(err);})
     },
@@ -46,8 +53,13 @@ export default {
             this.axios.patch(`customer/order/${this.order_id}`,{status: 'SERVED'})
                 .then((res)=>{
                     console.log(res);
+                    this.$swal({
+                        title:'Served',
+                        icon: 'success'
+                    })
                 })
                 .catch((err)=>{console.log(err);})
+            this.$emit('ClickServed')
         }
     }
 }

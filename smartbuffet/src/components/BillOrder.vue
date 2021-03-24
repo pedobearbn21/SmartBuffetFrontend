@@ -13,7 +13,7 @@
           </div>
       </div>
         <ModalDialog :show="showModal">
-          <order-history-table :order_id="id" />
+          <order-history-table @ClickServed='$emit("servedOrder")' :order_id="id" />
         </ModalDialog>
   </div>
 </template>
