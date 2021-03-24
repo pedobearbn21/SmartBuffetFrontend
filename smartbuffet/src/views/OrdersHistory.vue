@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="justify-self-center mx-6 mt-5   ">
-            <p class="text-xl font-bold">ราคารวมตอนนี้ : {{value}}</p>
+            <p class="text-xl font-bold">ราคารวมตอนนี้ : {{value>0?value:0}}</p>
             <div v-for="(item,index) in list" :key="item.id">
                 <BillOrder @servedOrder='fectchHistory' :index='index+1' :id='item.id' :name='item.name' :status='item.status' :meat_list='item.meat_list' />
             </div>

@@ -31,6 +31,13 @@ export default {
             list: []
         }
     },
+    computed:{
+        totalDisk() {
+            return this.list.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue.quantity
+                    }, 0)
+        }
+    },
     created(){
         this.list = this.$store.state.meat_list 
         console.log(this.list);

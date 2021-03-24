@@ -8,7 +8,6 @@ import WelcomePage from './views/WelcomePage.vue'
 import Cart from './views/Cart.vue'
 import ListMenu from './views/ListMenu.vue'
 
-import AddMeatOrder from './views/AddMeatOrder.vue'
 import OrdersHistory from './views/OrdersHistory.vue'
 
 
